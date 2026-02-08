@@ -1,0 +1,3 @@
+ interface birds {
+    void feed();
+}
