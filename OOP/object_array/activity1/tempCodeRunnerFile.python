@@ -1,0 +1,29 @@
+key='abcdefghijklmnopqrstuvwxyz'
+def enc_substitution(n,plaintext):
+    result =''
+    for l in plaintext.lower():
+        try:
+            i=(key.index(l)+n)%26
+            result+=key[i]
+        except ValueError:
+            result+=l
+            return result
+        
+def dec_substitution(n,ciphertext):
+            result='' 
+            for l in ciphertext:
+                  try:
+                        i=(key.index(l)-n)%26
+                        result+=key[i]
+                  except ValueError:
+                        result+=l
+                        return result
+                  
+
+orignaltext='we hold these truth'
+ciphertext=enc_substitution(13,orignaltext)
+plaintext=dec_substitution(13,ciphertext)
+
+print("orignal text",orignaltext)
+print("ciphertext: ",ciphertext)
+print("decrepted text",plaintext)
